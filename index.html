@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daniel Aldo Pratama</title>
+<meta name="description" content="Daniel Aldo Pratama works as a backend engineer and is a licensed commercial pilot. Choose a CV.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Daniel Aldo Pratama">
+<meta property="og:description" content="Backend engineer and commercial pilot. Choose a CV.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;800&family=Barlow+Condensed:wght@700&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f6f7fb;--ink:#151a28;--slate:#5a6275;--cobalt:#2b45d4;--navy:#0f2440;--amber:#ffb020}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 1.0625rem/1.6 "Schibsted Grotesk",system-ui,sans-serif;min-height:100vh;display:flex;flex-direction:column}
+.doors{flex:1;display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+.door{position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(1.5rem,5vw,4rem);text-decoration:none;overflow:hidden;transition:flex .3s}
+.door:focus-visible{outline:3px solid var(--amber);outline-offset:-6px}
+.door .what{font-size:1rem;margin-bottom:.5rem;opacity:.75}
+.door h2{line-height:.95;margin-bottom:1.25rem}
+.door p{max-width:24rem;opacity:.8}
+.door .go{margin-top:1.75rem;display:inline-flex;align-self:flex-start;padding:.65rem 1.1rem;border-radius:8px;font-weight:600;font-size:.95rem}
+
+.sw{background:var(--paper);color:var(--ink)}
+.sw h2{font-weight:800;font-size:clamp(2.6rem,6vw,4.6rem);letter-spacing:-.035em}
+.sw .go{background:var(--cobalt);color:#fff}
+.sw .code{position:absolute;top:clamp(1.5rem,5vw,4rem);left:clamp(1.5rem,5vw,4rem);right:1.5rem;font:400 .85rem/1.8 "IBM Plex Mono",monospace;color:var(--slate);white-space:pre;opacity:.9}
+.sw .code b{color:#1f9d64;font-weight:400}
+
+.av{background:var(--navy);color:#e9eef5;background-image:repeating-linear-gradient(90deg,transparent 0 79px,rgba(255,255,255,.035) 79px 80px),repeating-linear-gradient(0deg,transparent 0 79px,rgba(255,255,255,.035) 79px 80px)}
+.av h2{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:clamp(3rem,7vw,5.4rem);text-transform:uppercase}
+.av .go{background:var(--amber);color:var(--navy)}
+.av .hours{position:absolute;top:clamp(1.5rem,5vw,4rem);right:clamp(1.5rem,5vw,4rem);text-align:right;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.06em;color:#9fb0c6}
+.av .hours span{display:block;font-size:3.2rem;color:var(--amber);line-height:1}
+
+.name{position:fixed;top:0;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:.5rem 1.2rem;border-radius:0 0 10px 10px;font-weight:600;font-size:.95rem;z-index:3;white-space:nowrap}
+
+@media (hover:hover){
+  .door .go{transition:transform .2s}
+  .door:hover .go{transform:translateX(4px)}
+}
+@media (max-width:760px){
+  .doors{grid-template-columns:1fr}
+  .door{min-height:50vh;padding-top:6rem}
+  .sw .code{font-size:.75rem;top:3.5rem}
+  .av .hours{top:1.5rem}
+}
+@media (prefers-reduced-motion:reduce){.door .go{transition:none}}
+</style>
+</head>
+<body>
+<p class="name">Daniel Aldo Pratama</p>
+<main class="doors">
+  <a class="door sw" href="it/">
+    <div class="code" aria-hidden="true">GET /v1/engineers/daniel
+<b>200 OK</b></div>
+    <span class="what">Software</span>
+    <h2>Backend<br>Engineer</h2>
+    <p>Four years building payment APIs and microservices with Node.js, TypeScript and NestJS.</p>
+    <span class="go">Open software CV</span>
+  </a>
+  <a class="door av" href="pilot/">
+    <div class="hours" aria-hidden="true"><span>222</span>TOTAL HRS</div>
+    <span class="what">Aviation</span>
+    <h2>Commercial<br>Pilot</h2>
+    <p>CPL, IR and ME with a Frozen ATPL. Available now and willing to relocate.</p>
+    <span class="go">Open aviation CV</span>
+  </a>
+</main>
+</body>
+</html>

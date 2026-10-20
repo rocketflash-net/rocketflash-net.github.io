@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daniel Aldo Pratama | Commercial Pilot</title>
+<meta name="description" content="Daniel Aldo Pratama, Commercial Pilot (CPL/IR/ME) with Frozen ATPL and 222 total hours. Available immediately and willing to relocate.">
+<meta name="theme-color" content="#0f2440">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Daniel Aldo Pratama | Commercial Pilot">
+<meta property="og:description" content="Commercial Pilot (CPL/IR/ME), Frozen ATPL, 222 total hours. Available immediately and willing to relocate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f2f5f8; --surface:#ffffff; --ink:#0f2440; --slate:#556479; --line:#d2dae4; --rule:#c4d3e6;
+  --navy:#0f2440; --navy-2:#173257; --on-navy:#e9eef5; --on-navy-dim:#9fb0c6;
+  --amber:#b86e00; --amber-glow:#ffb020; --green:#1f8a55;
+  --max:66rem; --gutter:clamp(1rem,4vw,2.5rem);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0a1628; --surface:#0f1f37; --ink:#e6ecf4; --slate:#93a3b9; --line:#1f3352; --rule:#243b5e;
+    --navy:#06101f; --navy-2:#0f1f37; --amber:#ffb020; --green:#4cc98a;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0a1628; --surface:#0f1f37; --ink:#e6ecf4; --slate:#93a3b9; --line:#1f3352; --rule:#243b5e;
+  --navy:#06101f; --navy-2:#0f1f37; --amber:#ffb020; --green:#4cc98a;
+}
+*{box-sizing:border-box;margin:0;padding:0;min-width:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 Barlow,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--amber-glow);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.cond{font-family:"Barlow Condensed",Barlow,sans-serif}
+
+/* Navy band */
+.band{background:var(--navy);color:var(--on-navy);padding-bottom:7.5rem;position:relative;overflow:hidden}
+.band::after{content:"";position:absolute;inset:0;background:
+  repeating-linear-gradient(90deg,transparent 0 79px,rgba(255,255,255,.035) 79px 80px),
+  repeating-linear-gradient(0deg,transparent 0 79px,rgba(255,255,255,.035) 79px 80px);pointer-events:none}
+.band .wrap{position:relative;z-index:1}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;font-size:.95rem}
+.bar a{color:var(--on-navy-dim);text-decoration:none}
+.bar a:hover{color:#fff}
+.bar .home{color:var(--on-navy);font-weight:600}
+.bar .right{display:flex;gap:1.5rem;align-items:center}
+.toggle{background:transparent;border:1px solid rgba(255,255,255,.25);color:var(--on-navy);width:2.1rem;height:2.1rem;border-radius:50%;cursor:pointer}
+
+.intro{padding:clamp(2.5rem,7vw,5rem) 0 0;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:end}
+h1{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:clamp(3rem,8.5vw,6rem);line-height:.92;letter-spacing:-.01em;text-transform:uppercase}
+.ratings{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
+.ratings span{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:1.05rem;letter-spacing:.04em;padding:.2rem .7rem;border:1px solid rgba(255,255,255,.28);border-radius:4px}
+.lede{color:var(--on-navy-dim);max-width:36rem;margin-top:1.4rem}
+.avail{display:flex;align-items:center;gap:.6rem;color:var(--on-navy);font-weight:500;white-space:nowrap}
+.avail i{width:.6rem;height:.6rem;border-radius:50%;background:var(--amber-glow);box-shadow:0 0 0 4px rgba(255,176,32,.2),0 0 14px rgba(255,176,32,.7)}
+
+/* Logbook: the one loud element */
+.logbook{margin-top:-5.5rem;position:relative;z-index:2;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:0 24px 50px -28px rgba(15,36,64,.45);overflow:hidden}
+.logbook-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.5rem;padding:1rem 1.4rem;border-bottom:2px solid var(--ink)}
+.logbook-head h2{font-family:"Barlow Condensed",sans-serif;font-size:1.35rem;font-weight:600;letter-spacing:.02em}
+.logbook-head span{color:var(--slate);font-size:.92rem}
+.logbook table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.logbook th,.logbook td{text-align:center;padding:.7rem .4rem;border-right:1px solid var(--rule)}
+.logbook th:last-child,.logbook td:last-child{border-right:0}
+.logbook th{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:.95rem;color:var(--slate);letter-spacing:.06em;border-bottom:1px solid var(--rule);background:color-mix(in srgb,var(--rule) 22%,transparent)}
+.logbook td{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:clamp(1.8rem,4.4vw,2.8rem);line-height:1.1;padding:1rem .4rem}
+.logbook td small{display:block;font-family:Barlow,sans-serif;font-weight:400;font-size:.8rem;color:var(--slate);margin-top:.15rem}
+.logbook td.total{color:var(--amber)}
+.logbook .foot{padding:.8rem 1.4rem;border-top:1px solid var(--rule);color:var(--slate);font-size:.95rem}
+.logbook .foot b{color:var(--ink);font-weight:600}
+
+/* Sections */
+main section{padding:clamp(2.5rem,6vw,4rem) 0;border-bottom:1px solid var(--line)}
+main section:last-of-type{border-bottom:0}
+.split{display:grid;grid-template-columns:13rem 1fr;gap:2rem}
+h2.sec{font-family:"Barlow Condensed",sans-serif;font-size:1.9rem;font-weight:600;line-height:1.1}
+.split > header p{color:var(--slate);font-size:.95rem;margin-top:.5rem}
+
+.licences{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:0 2.5rem}
+.licences li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--line)}
+.licences li b{font-weight:600}
+.licences li span{color:var(--slate);font-size:.92rem;text-align:right}
+.licences li .warn{color:var(--amber);font-weight:500}
+
+.aircraft{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1rem}
+.ac{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--navy-2);border-radius:6px;padding:1.1rem 1.25rem}
+:root[data-theme="dark"] .ac{border-left-color:var(--amber)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .ac{border-left-color:var(--amber)}}
+.ac h3{font-family:"Barlow Condensed",sans-serif;font-size:1.5rem;font-weight:600;line-height:1.15}
+.ac p{color:var(--slate);font-size:.95rem;margin-top:.2rem}
+
+.entries{display:grid;gap:1.75rem}
+.entry-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.25rem 1rem;align-items:baseline}
+.entry h3{font-size:1.15rem;font-weight:600}
+.entry .dates{color:var(--slate);font-variant-numeric:tabular-nums;font-size:.95rem}
+.entry .org{color:var(--slate)}
+.entry ul{margin-top:.6rem;padding-left:1.1rem;color:var(--slate)}
+.entry li{margin:.3rem 0}
+.entry li::marker{color:var(--amber)}
+
+.traits{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.6rem 2.5rem;list-style:none}
+.traits li{padding-left:1.4rem;position:relative}
+.traits li::before{content:"";position:absolute;left:0;top:.7rem;width:.7rem;height:2px;background:var(--amber)}
+
+.contact{background:var(--navy);color:var(--on-navy);border-radius:12px;padding:clamp(1.75rem,4vw,2.75rem);display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center}
+.contact h2{font-family:"Barlow Condensed",sans-serif;font-size:clamp(1.9rem,4vw,2.6rem);font-weight:700;line-height:1.05}
+.contact p{color:var(--on-navy-dim);margin-top:.6rem;max-width:30rem}
+.contact .lines{display:grid;gap:.5rem}
+.contact .lines a{color:var(--on-navy);text-decoration:none;font-weight:600;font-size:1.1rem}
+.contact .lines a:hover{color:var(--amber-glow)}
+.btn{display:inline-block;margin-top:.6rem;justify-self:start;background:var(--amber-glow);color:#0f2440;padding:.7rem 1.2rem;border-radius:8px;font-weight:600;text-decoration:none}
+.btn:hover{filter:brightness(1.06)}
+.other{margin-top:2rem;color:var(--slate)}
+.other a{color:var(--ink);font-weight:600}
+
+footer{padding:2rem 0 3rem;color:var(--slate);font-size:.9rem}
+
+@media (max-width:820px){
+  .intro{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr;gap:1.25rem}
+  .contact{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .bar .right a{display:none}
+  .logbook table,.logbook thead,.logbook tbody,.logbook tr{display:block}
+  .logbook thead{display:none}
+  .logbook tr{display:grid;grid-template-columns:repeat(3,1fr)}
+  .logbook td{border-bottom:1px solid var(--rule);font-size:1.9rem}
+  .logbook td:nth-child(3n){border-right:0}
+  .logbook td:last-child{border-right:1px solid var(--rule)}
+}
+@media print{
+  .bar,.toggle,.btn,.other,footer{display:none}
+  body{background:#fff;color:#000}
+  .band{background:#fff;color:#000;padding-bottom:1rem}
+  .band::after{display:none}
+  .lede,.ratings span{color:#333;border-color:#999}
+  .logbook{margin-top:0;box-shadow:none}
+  main section{padding:1rem 0;break-inside:avoid-page}
+  .contact{background:#fff;color:#000;border:1px solid #999}
+  .contact .lines a{color:#000}
+}
+</style>
+</head>
+<body>
+<div class="band">
+  <div class="wrap">
+    <div class="bar">
+      <a class="home" href="../">Daniel Aldo Pratama</a>
+      <div class="right">
+        <a href="#licences">Licences</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <button class="toggle" id="theme" type="button" aria-label="Switch light or dark theme">◐</button>
+      </div>
+    </div>
+    <div class="intro">
+      <div>
+        <h1>Daniel Aldo<br>Pratama</h1>
+        <div class="ratings" aria-label="Licences and ratings"><span>CPL</span><span>IR</span><span>ME</span><span>Frozen ATPL</span></div>
+        <p class="lede">I'm a commercial pilot licensed by DGCA Indonesia and trained on the Cessna 172SP G1000 and Tecnam P2006T. I'm adaptable and ready for regional airline, aerial survey, bush or remote-base operations.</p>
+      </div>
+      <p class="avail"><i aria-hidden="true"></i>Available now, willing to relocate</p>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="logbook">
+    <div class="logbook-head"><h2>Flight time</h2><span>Logbook totals, in hours</span></div>
+    <table>
+      <thead><tr><th scope="col">TOTAL</th><th scope="col">PIC</th><th scope="col">SIC</th><th scope="col">INSTRUMENT</th><th scope="col">MULTI-ENGINE</th><th scope="col">NIGHT</th><th scope="col">SIM</th></tr></thead>
+      <tbody><tr>
+        <td class="total">222<small>Total</small></td>
+        <td>73<small>Pilot in command</small></td>
+        <td>149<small>Second in command</small></td>
+        <td>50<small>Instrument</small></td>
+        <td>10<small>Multi-engine</small></td>
+        <td>8<small>Night</small></td>
+        <td>30<small>Redbird sim</small></td>
+      </tr></tbody>
+    </table>
+    <div class="foot">Aircraft flown: <b>Cessna 172SP G1000</b> and <b>Tecnam P2006T</b></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section id="licences" class="split">
+    <header><h2 class="sec">Licences &amp; ratings</h2><p>Issued by DGCA Indonesia under ICAO standards.</p></header>
+    <ul class="licences">
+      <li><b>Commercial Pilot Licence (CPL)</b><span>DGCA Indonesia</span></li>
+      <li><b>Instrument Rating (IR)</b><span>DGCA Indonesia</span></li>
+      <li><b>Multi-Engine Rating</b><span>Tecnam P2006T</span></li>
+      <li><b>Frozen ATPL</b><span>DGCA Indonesia</span></li>
+      <li><b>Radio Telephony</b><span>DGCA Restricted</span></li>
+      <li><b>Cessna 172S G1000</b><span>Type familiarization</span></li>
+      <li><b>English proficiency</b><span>TOEIC 840 (ITC)</span></li>
+      <li><b>Medical Class 1</b><span class="warn">Expired, ready to renew</span></li>
+    </ul>
+  </section>
+
+  <section id="aircraft" class="split">
+    <header><h2 class="sec">Aircraft</h2></header>
+    <div class="aircraft">
+      <div class="ac"><h3>Cessna 172SP</h3><p>Single-engine piston with the Garmin G1000 glass cockpit. Most of my training hours.</p></div>
+      <div class="ac"><h3>Tecnam P2006T</h3><p>Twin-engine piston. 10 hours for the multi-engine rating.</p></div>
+    </div>
+  </section>
+
+  <section id="experience" class="split">
+    <header><h2 class="sec">Training &amp; experience</h2></header>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-head"><h3>Mentor &amp; Instructor</h3><span class="dates">Jan 2017 – Oct 2017</span></div>
+        <p class="org">Bandung Pilot Academy, Bandung</p>
+        <ul>
+          <li>Taught student pilots aviation theory, regulations, navigation and operating procedures.</li>
+          <li>Ran ground sessions and discussions to prepare students for flight training.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><h3>CPL / IR / ME Program</h3><span class="dates">2014 – 2017</span></div>
+        <p class="org">Bandung Pilot Academy</p>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><h3>Sea &amp; Jungle Survival</h3></div>
+        <p class="org">TNI AU, Paskhas Wing VIII</p>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><h3>General &amp; Aviation English</h3></div>
+        <p class="org">Husein English Centre</p>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><h3>Bachelor's Degree in Management</h3><span class="dates">2015 – 2019</span></div>
+        <p class="org">Universitas Terbuka</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="strengths" class="split">
+    <header><h2 class="sec">How I fly</h2></header>
+    <ul class="traits">
+      <li>SOP compliance and cockpit discipline</li>
+      <li>Situational awareness</li>
+      <li>Crew coordination</li>
+      <li>Familiar with DGCA procedures and ICAO regulations</li>
+      <li>At home in multicultural teams</li>
+      <li>Comfortable at remote bases</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <div>
+        <h2>Ready to join your crew</h2>
+        <p>Available immediately and willing to relocate anywhere. I can renew my Class 1 medical as soon as an opportunity comes up.</p>
+      </div>
+      <div class="lines">
+        <a href="mailto:danielaldod@rocketmail.com">danielaldod@rocketmail.com</a>
+        <a href="tel:+6282376830868">+62 823-7683-0868</a>
+        <a href="https://id.linkedin.com/in/danielaldo2201" target="_blank" rel="noopener">LinkedIn: in/danielaldo2201</a>
+        <span style="color:var(--on-navy-dim)">Jakarta, Indonesia</span>
+        <a class="btn" href="#" id="print">Save as PDF</a>
+      </div>
+    </div>
+    <p class="other">I also work as a backend engineer. <a href="../it/">View my software CV</a></p>
+  </section>
+</main>
+
+<footer><div class="wrap">© 2026 Daniel Aldo Pratama</div></footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  try{var s=localStorage.getItem('theme');if(s)root.setAttribute('data-theme',s);}catch(e){}
+  document.getElementById('theme').addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    var next=cur==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next);}catch(e){}
+  });
+  document.getElementById('print').addEventListener('click',function(e){e.preventDefault();print();});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daniel Aldo Pratama | Backend Engineer</title>
+<meta name="description" content="Daniel Aldo Pratama is a backend engineer in Jakarta building payment APIs and microservices with Node.js, TypeScript and NestJS.">
+<meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d1220" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Daniel Aldo Pratama | Backend Engineer">
+<meta property="og:description" content="Backend engineer building payment APIs and microservices with Node.js, TypeScript and NestJS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f6f7fb; --surface:#ffffff; --ink:#151a28; --slate:#5a6275; --line:#e1e4ee;
+  --cobalt:#2b45d4; --cobalt-wash:#eaedfc;
+  --code-bg:#151a28; --code-ink:#d9def0; --code-key:#9db0ff; --code-str:#9be3b8; --code-num:#ffc58a; --code-dim:#6d7591; --ok:#3ccf8e;
+  --max:68rem; --gutter:clamp(1rem,4vw,2.5rem);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0d1220; --surface:#131a2c; --ink:#e7eaf3; --slate:#98a0b6; --line:#232b42;
+    --cobalt:#8fa2ff; --cobalt-wash:#1a2246; --code-bg:#070a14;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0d1220; --surface:#131a2c; --ink:#e7eaf3; --slate:#98a0b6; --line:#232b42;
+  --cobalt:#8fa2ff; --cobalt-wash:#1a2246; --code-bg:#070a14;
+}
+*{box-sizing:border-box;margin:0;padding:0;min-width:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 "Schibsted Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--cobalt);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+
+.bar{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;font-size:.95rem}
+.bar .home{color:var(--ink);text-decoration:none;font-weight:600}
+.bar .right{display:flex;gap:1.5rem;align-items:center}
+.bar .right a{color:var(--slate);text-decoration:none}
+.bar .right a:hover{color:var(--ink)}
+.toggle{background:var(--surface);border:1px solid var(--line);color:var(--ink);width:2.1rem;height:2.1rem;border-radius:50%;cursor:pointer;font-size:.95rem}
+
+/* Hero: the API response card is the one loud element on the page */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;padding:clamp(2.5rem,7vw,5.5rem) 0 clamp(3rem,7vw,5rem)}
+h1{font-size:clamp(2.6rem,6.2vw,4.4rem);line-height:1.02;letter-spacing:-.035em;font-weight:800}
+.title{font-size:clamp(1.15rem,2.2vw,1.4rem);font-weight:500;color:var(--cobalt);margin-top:.9rem}
+.intro{color:var(--slate);margin-top:1.4rem;max-width:34rem}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.btn{display:inline-flex;align-items:center;padding:.7rem 1.2rem;border-radius:8px;font-weight:600;font-size:.95rem;text-decoration:none;border:1px solid var(--line);color:var(--ink);background:var(--surface)}
+.btn:hover{border-color:var(--cobalt)}
+.btn.solid{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+:root[data-theme="dark"] .btn.solid{color:#0d1220}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn.solid{color:#0d1220}}
+.btn.solid:hover{filter:brightness(1.08)}
+
+.response{background:var(--code-bg);color:var(--code-ink);border-radius:14px;font:400 .86rem/1.75 "IBM Plex Mono",ui-monospace,monospace;box-shadow:0 30px 60px -30px rgba(21,26,40,.55);overflow:hidden}
+.response .req{display:flex;align-items:center;gap:.75rem;padding:.85rem 1.2rem;border-bottom:1px solid rgba(255,255,255,.08);color:var(--code-dim);font-size:.8rem}
+.response .verb{color:var(--code-str);font-weight:500}
+.response .path{color:var(--code-ink)}
+.response .status{margin-left:auto;color:var(--ok);display:flex;align-items:center;gap:.4rem}
+.response .status::before{content:"";width:.45rem;height:.45rem;border-radius:50%;background:var(--ok)}
+.response pre{padding:1.1rem 1.2rem 1.3rem;overflow-x:auto;white-space:pre}
+.k{color:var(--code-key)} .s{color:var(--code-str)} .n{color:var(--code-num)} .p{color:var(--code-dim)}
+.response pre .line{display:block;opacity:0;animation:type .01s forwards}
+@keyframes type{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.response pre .line{opacity:1;animation:none}}
+
+/* Content sections */
+section{padding:clamp(2.5rem,6vw,4rem) 0;border-top:1px solid var(--line)}
+.split{display:grid;grid-template-columns:14rem 1fr;gap:2rem}
+h2{font-size:1.5rem;letter-spacing:-.02em;font-weight:700;line-height:1.2}
+.split > header p{color:var(--slate);font-size:.95rem;margin-top:.5rem;max-width:12rem}
+
+.timeline{list-style:none;position:relative}
+.timeline::before{content:"";position:absolute;left:.3rem;top:.6rem;bottom:.6rem;width:1px;background:var(--line)}
+.role{position:relative;padding:0 0 2.5rem 2rem}
+.role:last-child{padding-bottom:0}
+.role::before{content:"";position:absolute;left:0;top:.5rem;width:.65rem;height:.65rem;border-radius:50%;background:var(--paper);border:2px solid var(--slate)}
+.role.now::before{border-color:var(--cobalt);background:var(--cobalt)}
+.role-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.25rem 1rem;align-items:baseline}
+.role h3{font-size:1.2rem;font-weight:700;letter-spacing:-.01em}
+.role .dates{color:var(--slate);font-size:.92rem;font-variant-numeric:tabular-nums}
+.role .org{color:var(--slate);margin-top:.1rem}
+.role .org b{color:var(--ink);font-weight:600}
+.role ul{margin-top:.9rem;padding-left:1.1rem;color:var(--slate)}
+.role li{margin:.35rem 0;padding-left:.2rem}
+.role li::marker{color:var(--cobalt)}
+.role li b{color:var(--ink);font-weight:600}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1.75rem 2rem}
+.skills h3{font-size:1rem;font-weight:600;margin-bottom:.6rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chip{font-size:.88rem;padding:.25rem .65rem;border-radius:999px;background:var(--cobalt-wash);color:var(--ink)}
+
+.work{display:grid;gap:0}
+.item{display:grid;grid-template-columns:1fr auto;gap:.3rem 1.5rem;padding:1.3rem 0;border-bottom:1px solid var(--line)}
+.item:first-child{padding-top:0}
+.item:last-child{border-bottom:0}
+.item h3{font-size:1.15rem;font-weight:700}
+.item p{color:var(--slate);grid-column:1;max-width:40rem}
+.item a{grid-row:1;grid-column:2;font-size:.92rem;white-space:nowrap;align-self:baseline}
+
+.edu{display:grid;gap:1.25rem}
+.edu div{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.25rem 1rem}
+.edu b{font-weight:600}
+.edu span{color:var(--slate);font-variant-numeric:tabular-nums}
+.edu small{display:block;width:100%;color:var(--slate);font-size:.95rem}
+
+.contact-lines{display:grid;gap:.6rem;font-size:1.1rem}
+.contact-lines a{color:var(--ink);text-decoration:none;font-weight:600}
+.contact-lines a:hover{color:var(--cobalt)}
+.contact-lines span{color:var(--slate);font-weight:400;display:inline-block;width:6rem;font-size:.95rem}
+.other{margin-top:2.5rem;padding:1.1rem 1.3rem;border-radius:10px;background:var(--surface);border:1px solid var(--line);color:var(--slate);max-width:36rem}
+
+footer{padding:2rem 0 3rem;color:var(--slate);font-size:.9rem;border-top:1px solid var(--line)}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr;gap:1.25rem}
+  .split > header p{max-width:none}
+}
+@media (max-width:560px){
+  .bar .right a{display:none}
+  .item{grid-template-columns:1fr}
+  .item a{grid-row:auto;grid-column:1}
+  .response{font-size:.76rem}
+}
+@media print{
+  .bar,.cta,.other,footer,.toggle{display:none}
+  body{background:#fff;color:#000;font-size:11pt}
+  .hero{padding:0 0 1rem;grid-template-columns:1fr}
+  .response{display:none}
+  section{padding:1rem 0;break-inside:avoid-page}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <a class="home" href="../">Daniel Aldo Pratama</a>
+    <div class="right">
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <button class="toggle" id="theme" type="button" aria-label="Switch light or dark theme">◐</button>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div>
+      <h1>Daniel Aldo<br>Pratama</h1>
+      <p class="title">Backend Engineer for payment systems</p>
+      <p class="intro">I build backend services for payment platforms: APIs, system architecture and vendor integrations. I have spent four years on microservices for QRIS payments, transfers and merchant APIs, with the aim of keeping them reliable and easy to maintain.</p>
+      <div class="cta">
+        <a class="btn solid" href="mailto:danielaldod@gmail.com">Email me</a>
+        <a class="btn" href="https://id.linkedin.com/in/danielaldo2201" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/rocketflash-net" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="#" id="print">Save as PDF</a>
+      </div>
+    </div>
+
+    <div class="response" aria-label="Profile summary formatted as an API response">
+      <div class="req"><span class="verb">GET</span><span class="path">/v1/engineers/daniel</span><span class="status">200 OK</span></div>
+<pre><span class="line"><span class="p">{</span></span><span class="line">  <span class="k">"role"</span><span class="p">:</span> <span class="s">"Backend Engineer"</span><span class="p">,</span></span><span class="line">  <span class="k">"experience_years"</span><span class="p">:</span> <span class="n">4</span><span class="p">,</span></span><span class="line">  <span class="k">"stack"</span><span class="p">: [</span><span class="s">"Node.js"</span><span class="p">,</span> <span class="s">"TypeScript"</span><span class="p">,</span> <span class="s">"NestJS"</span><span class="p">],</span></span><span class="line">  <span class="k">"database"</span><span class="p">:</span> <span class="s">"PostgreSQL"</span><span class="p">,</span></span><span class="line">  <span class="k">"domain"</span><span class="p">: [</span><span class="s">"QRIS"</span><span class="p">,</span> <span class="s">"transfers"</span><span class="p">,</span> <span class="s">"PPOB"</span><span class="p">,</span> <span class="s">"Open API"</span><span class="p">],</span></span><span class="line">  <span class="k">"architecture"</span><span class="p">:</span> <span class="s">"microservices"</span><span class="p">,</span></span><span class="line">  <span class="k">"location"</span><span class="p">:</span> <span class="s">"Jakarta, ID"</span><span class="p">,</span></span><span class="line">  <span class="k">"open_to_work"</span><span class="p">:</span> <span class="n">true</span></span><span class="line"><span class="p">}</span></span></pre>
+    </div>
+  </div>
+
+  <section id="experience" class="split">
+    <header><h2>Experience</h2><p>Four years in backend engineering, preceded by operations and aviation roles.</p></header>
+    <ol class="timeline">
+      <li class="role now">
+        <div class="role-head"><h3>Backend Engineer</h3><span class="dates">Oct 2022 – Sep 2026</span></div>
+        <p class="org"><b>PT Reka Multi Aptika</b>, Jakarta</p>
+        <ul>
+          <li>Built backend services in JavaScript and TypeScript for the <b>BATPay</b>, <b>BATBiz</b> and <b>Open API</b> platforms.</li>
+          <li>Built payment features across microservices: <b>QRIS MPM/CPM</b>, cross-border QRIS, transfers and PPOB.</li>
+          <li>Refactored legacy database schemas to improve data integrity and reduce query latency.</li>
+          <li>Built integration APIs that made the system more responsive and made it easier for third-party services to connect.</li>
+          <li>Integrated vendor and internal systems, and debugged production issues such as QRIS response code 68 and socket timeouts.</li>
+          <li>Worked with product and engineering teams to design and ship new platform features.</li>
+        </ul>
+      </li>
+      <li class="role">
+        <div class="role-head"><h3>SPP Staff</h3><span class="dates">Oct 2020 – May 2022</span></div>
+        <p class="org"><b>Indomobil Finance</b>, Jakarta</p>
+        <ul>
+          <li>Reviewed penalty discount and asset settlement requests from branches across Eastern Indonesia.</li>
+          <li>Coordinated with regional branches to keep documentation accurate and compliant with internal policy.</li>
+          <li>Processed approvals for loan penalty adjustments, contract settlements and staff business travel.</li>
+        </ul>
+      </li>
+      <li class="role">
+        <div class="role-head"><h3>Mentor &amp; Instructor</h3><span class="dates">Jan 2017 – Oct 2017</span></div>
+        <p class="org"><b>Bandung Pilot Academy</b>, Bandung</p>
+        <ul>
+          <li>Taught student pilots aviation theory, regulations, navigation and operating procedures.</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+
+  <section id="skills" class="split">
+    <header><h2>Skills</h2></header>
+    <div class="skills">
+      <div><h3>Languages</h3><div class="chips"><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">PHP</span></div></div>
+      <div><h3>Frameworks</h3><div class="chips"><span class="chip">Node.js</span><span class="chip">NestJS</span><span class="chip">Express.js</span><span class="chip">Laravel</span></div></div>
+      <div><h3>Data</h3><div class="chips"><span class="chip">PostgreSQL</span><span class="chip">Sequelize ORM</span><span class="chip">Schema design</span></div></div>
+      <div><h3>Systems</h3><div class="chips"><span class="chip">Microservices</span><span class="chip">REST API</span><span class="chip">Payment integration</span><span class="chip">QRIS</span></div></div>
+      <div><h3>Practice</h3><div class="chips"><span class="chip">Git</span><span class="chip">Debugging</span><span class="chip">Performance tuning</span><span class="chip">Agile</span></div></div>
+    </div>
+  </section>
+
+  <section id="projects" class="split">
+    <header><h2>Projects</h2></header>
+    <div class="work">
+      <div class="item">
+        <h3>BATPay</h3>
+        <a href="https://batpay.id" target="_blank" rel="noopener">batpay.id</a>
+        <p>A consumer payment app. I worked on the backend services for QRIS, cross-border payments, transfers and PPOB.</p>
+      </div>
+      <div class="item">
+        <h3>BATBiz</h3>
+        <a href="https://batpay.id/batpaybisnis/" target="_blank" rel="noopener">batpay.id/batpaybisnis</a>
+        <p>A business product for merchants and e-wallet partners, including the Open API platform.</p>
+      </div>
+      <div class="item">
+        <h3>Remote For Hive</h3>
+        <a href="https://remoteforhive.com" target="_blank" rel="noopener">remoteforhive.com</a>
+        <p>I built the landing page, the admin panel and the certificate page.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="split">
+    <header><h2>Education</h2></header>
+    <div class="edu">
+      <div><b>Bachelor's Degree in Management</b><span>2015 – 2019</span><small>Universitas Terbuka</small></div>
+      <div><b>JavaScript Immersive Bootcamp</b><span>Jun – Sep 2022</span><small>Hacktiv8, Jakarta</small></div>
+      <div><b>Commercial Pilot Program (CPL/IR/ME)</b><span>2014 – 2017</span><small>Bandung Pilot Academy</small></div>
+    </div>
+  </section>
+
+  <section id="contact" class="split">
+    <header><h2>Contact</h2><p>Open to backend roles in payments and fintech.</p></header>
+    <div>
+      <div class="contact-lines">
+        <div><span>Email</span><a href="mailto:danielaldod@gmail.com">danielaldod@gmail.com</a></div>
+        <div><span>Phone</span><a href="tel:+6282376830868">+62 823-7683-0868</a></div>
+        <div><span>LinkedIn</span><a href="https://id.linkedin.com/in/danielaldo2201" target="_blank" rel="noopener">in/danielaldo2201</a></div>
+        <div><span>GitHub</span><a href="https://github.com/rocketflash-net" target="_blank" rel="noopener">rocketflash-net</a></div>
+        <div><span>Based in</span>Jakarta, Indonesia</div>
+      </div>
+      <p class="other">I'm also a licensed commercial pilot. <a href="../pilot/">View my aviation CV</a></p>
+    </div>
+  </section>
+</div>
+
+<footer><div class="wrap">© 2026 Daniel Aldo Pratama</div></footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  try{var s=localStorage.getItem('theme');if(s)root.setAttribute('data-theme',s);}catch(e){}
+  document.getElementById('theme').addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    var next=cur==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next);}catch(e){}
+  });
+  document.getElementById('print').addEventListener('click',function(e){e.preventDefault();print();});
+  // Reveal the response one line at a time, like a payload arriving
+  document.querySelectorAll('.response pre .line').forEach(function(l,i){l.style.animationDelay=(300+i*90)+'ms';});
+})();
+</script>
+</body>
+</html>
