@@ -112,6 +112,25 @@ h2.sec{font-family:"Barlow Condensed",sans-serif;font-size:1.9rem;font-weight:60
 .ac h3{font-family:"Barlow Condensed",sans-serif;font-size:1.5rem;font-weight:600;line-height:1.15}
 .ac p{color:var(--slate);font-size:.95rem;margin-top:.2rem}
 
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:1.25rem}
+.tool{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.tool:hover{transform:translateY(-3px);border-color:var(--rule);box-shadow:0 18px 40px -26px rgba(15,36,64,.55)}
+.tool .art{display:block;background:var(--navy);position:relative;aspect-ratio:16/7;border-bottom:1px solid var(--line)}
+.tool .art::after{content:"";position:absolute;inset:0;background:
+  repeating-linear-gradient(90deg,transparent 0 31px,rgba(255,255,255,.04) 31px 32px),
+  repeating-linear-gradient(0deg,transparent 0 31px,rgba(255,255,255,.04) 31px 32px);pointer-events:none}
+.tool svg{position:relative;z-index:1;width:100%;height:100%;display:block}
+.tool .body{display:flex;flex-direction:column;flex:1;padding:1.1rem 1.25rem 1.2rem}
+.tool .kicker{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber)}
+.tool h3{font-family:"Barlow Condensed",sans-serif;font-size:1.6rem;font-weight:600;line-height:1.1;margin-top:.15rem}
+.tool p{color:var(--slate);font-size:.95rem;margin-top:.45rem}
+.tool .go{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:auto;padding-top:1rem;font-size:.88rem;color:var(--slate);overflow-wrap:anywhere}
+.tool .go b{color:var(--ink);font-weight:600;font-size:.95rem;white-space:nowrap}
+.tool .go b span{display:inline-block;transition:transform .2s ease}
+.tool:hover .go b span{transform:translateX(4px)}
+.tools-note{color:var(--slate);font-size:.92rem;margin-top:1rem}
+@media (prefers-reduced-motion:reduce){.tool,.tool .go b span{transition:none}.tool:hover{transform:none}}
+
 .entries{display:grid;gap:1.75rem}
 .entry-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.25rem 1rem;align-items:baseline}
 .entry h3{font-size:1.15rem;font-weight:600}
@@ -162,6 +181,10 @@ footer{padding:2rem 0 3rem;color:var(--slate);font-size:.9rem}
   main section{padding:1rem 0;break-inside:avoid-page}
   .contact{background:#fff;color:#000;border:1px solid #999}
   .contact .lines a{color:#000}
+  .tool .art{display:none}
+  .tool{border:1px solid #999}
+  .tool .go b{display:none}
+  .tool .go::after{content:attr(data-url)}
 }
 </style>
 </head>
@@ -172,6 +195,7 @@ footer{padding:2rem 0 3rem;color:var(--slate);font-size:.9rem}
       <a class="home" href="../">Daniel Aldo Pratama</a>
       <div class="right">
         <a href="#licences">Licences</a>
+        <a href="#tools">Tools</a>
         <a href="#experience">Training</a>
         <a href="#contact">Contact</a>
         <button class="toggle" id="theme" type="button" aria-label="Switch light or dark theme">◐</button>
@@ -227,6 +251,55 @@ footer{padding:2rem 0 3rem;color:var(--slate);font-size:.9rem}
     <div class="aircraft">
       <div class="ac"><h3>Cessna 172SP</h3><p>Single-engine piston with the Garmin G1000 glass cockpit. Most of my training hours.</p></div>
       <div class="ac"><h3>Tecnam P2006T</h3><p>Twin-engine piston. 10 hours for the multi-engine rating.</p></div>
+    </div>
+  </section>
+
+  <section id="tools" class="split">
+    <header><h2 class="sec">Tools I built</h2><p>Free web apps for pilots in training, where my flying and software work meet.</p></header>
+    <div>
+      <div class="tools">
+        <a class="tool" href="https://rocketflash-net.github.io/radionav-trainer/" target="_blank" rel="noopener">
+          <span class="art" aria-hidden="true">
+            <svg viewBox="0 0 320 140" preserveAspectRatio="xMidYMid meet" fill="none">
+              <circle cx="160" cy="70" r="52" stroke="#9fb0c6" stroke-opacity=".55" stroke-width="7" stroke-dasharray="1.2 7.87"/>
+              <circle cx="160" cy="70" r="44" stroke="#9fb0c6" stroke-opacity=".35"/>
+              <g transform="rotate(35 160 70)">
+                <path d="M160 24v16M160 100v16" stroke="#ffb020" stroke-width="3" stroke-linecap="round"/>
+                <path d="M154 31l6-9 6 9" stroke="#ffb020" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M171 46v48" stroke="#ffb020" stroke-width="3" stroke-linecap="round"/>
+                <g fill="#9fb0c6" fill-opacity=".6"><circle cx="132" cy="70" r="2"/><circle cx="146" cy="70" r="2"/><circle cx="174" cy="70" r="2"/><circle cx="188" cy="70" r="2"/></g>
+              </g>
+              <path d="M160 60v22M150 68h20M155 80h10" stroke="#e9eef5" stroke-width="2.4" stroke-linecap="round"/>
+              <path d="M160 12l-4 6h8z" fill="#e9eef5"/>
+            </svg>
+          </span>
+          <span class="body">
+            <span class="kicker">VOR · NDB · ILS</span>
+            <h3>RadioNav Trainer</h3>
+            <p>Practice radial intercepts, NDB tracking and ILS approaches on a simulated HSI and RMI, with random wind and short built-in lessons.</p>
+            <span class="go" data-url="rocketflash-net.github.io/radionav-trainer">Web app · EN / ID<b>Open <span>→</span></b></span>
+          </span>
+        </a>
+        <a class="tool" href="https://rocketflash-net.github.io/weight-balance/" target="_blank" rel="noopener">
+          <span class="art" aria-hidden="true">
+            <svg viewBox="0 0 320 140" preserveAspectRatio="xMidYMid meet" fill="none">
+              <path d="M70 122h190M70 122V18" stroke="#9fb0c6" stroke-opacity=".5"/>
+              <path d="M96 116V84l30-56h110v88z" stroke="#9fb0c6" stroke-opacity=".8" stroke-width="2" stroke-linejoin="round" fill="#9fb0c6" fill-opacity=".06"/>
+              <path d="M198 44L184 76L172 98" stroke="#ffb020" stroke-width="2" stroke-dasharray="4 4"/>
+              <circle cx="198" cy="44" r="5.5" fill="#ffb020"/>
+              <circle cx="184" cy="76" r="4.5" fill="#0f2440" stroke="#ffb020" stroke-width="2"/>
+              <circle cx="172" cy="98" r="4.5" fill="#0f2440" stroke="#9fb0c6" stroke-width="2"/>
+            </svg>
+          </span>
+          <span class="body">
+            <span class="kicker">Flight planning</span>
+            <h3>Weight &amp; Balance</h3>
+            <p>Work out takeoff, landing and zero-fuel CG and check each point against the envelope. Supports lb or kg, avgas or Jet A, example aircraft or your own.</p>
+            <span class="go" data-url="rocketflash-net.github.io/weight-balance">Web app · EN / ID<b>Open <span>→</span></b></span>
+          </span>
+        </a>
+      </div>
+      <p class="tools-note">Both are free and open in the browser. They're built for practice and cross-checking, not a replacement for the POH or an instructor.</p>
     </div>
   </section>
 
