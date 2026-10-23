@@ -115,6 +115,25 @@ h2{font-size:1.5rem;letter-spacing:-.02em;font-weight:700;line-height:1.2}
 .chips{display:flex;flex-wrap:wrap;gap:.4rem}
 .chip{font-size:.88rem;padding:.25rem .65rem;border-radius:999px;background:var(--cobalt-wash);color:var(--ink)}
 
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:1.25rem}
+.tool{position:relative;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.tool:hover{transform:translateY(-3px);border-color:var(--cobalt);box-shadow:0 22px 44px -28px rgba(21,26,40,.55)}
+.tool .art{display:block;background:var(--code-bg);aspect-ratio:320/148;border-bottom:1px solid var(--line)}
+.tool .art svg{width:100%;height:100%;display:block}
+.tool .body{display:flex;flex-direction:column;flex:1;padding:1.1rem 1.25rem 1.2rem}
+.tool .kicker{font:500 .76rem/1.4 "IBM Plex Mono",ui-monospace,monospace;color:var(--cobalt)}
+.tool h3{font-size:1.2rem;font-weight:700;letter-spacing:-.01em;margin-top:.3rem}
+.tool h3 a{color:var(--ink);text-decoration:none}
+.tool h3 a::after{content:"";position:absolute;inset:0;z-index:1}
+.tool p{color:var(--slate);font-size:.95rem;margin-top:.4rem}
+.tool .links{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:auto;padding-top:1rem;font-size:.92rem}
+.tool .open{font-weight:600;color:var(--cobalt)}
+.tool .open span{display:inline-block;transition:transform .2s ease}
+.tool:hover .open span{transform:translateX(4px)}
+.tool .src{position:relative;z-index:2;color:var(--slate)}
+.tool .src:hover{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){.tool,.tool .open span{transition:none}.tool:hover{transform:none}}
+
 .work{display:grid;gap:0}
 .item{display:grid;grid-template-columns:1fr auto;gap:.3rem 1.5rem;padding:1.3rem 0;border-bottom:1px solid var(--line)}
 .item:first-child{padding-top:0}
@@ -154,6 +173,8 @@ footer{padding:2rem 0 3rem;color:var(--slate);font-size:.9rem;border-top:1px sol
   .hero{padding:0 0 1rem;grid-template-columns:1fr}
   .response{display:none}
   section{padding:1rem 0;break-inside:avoid-page}
+  .tool .art{display:none}
+  .tool{break-inside:avoid}
 }
 </style>
 </head>
@@ -164,6 +185,7 @@ footer{padding:2rem 0 3rem;color:var(--slate);font-size:.9rem;border-top:1px sol
     <div class="right">
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
+      <a href="#tools">Tools</a>
       <a href="#contact">Contact</a>
       <button class="toggle" id="theme" type="button" aria-label="Switch light or dark theme">◐</button>
     </div>
@@ -226,19 +248,56 @@ footer{padding:2rem 0 3rem;color:var(--slate);font-size:.9rem;border-top:1px sol
     </div>
   </section>
 
+  <section id="tools" class="split">
+    <header><h2>Tools</h2><p>Open-source web tools I built for working with QRIS and QR codes.</p></header>
+    <div class="tools">
+      <article class="tool">
+        <span class="art" aria-hidden="true">
+          <svg viewBox="0 0 320 148" fill="none" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="11">
+            <text x="20" y="30"><tspan fill="var(--code-key)">00</tspan><tspan fill="var(--code-num)">02</tspan><tspan fill="var(--code-ink)">01</tspan><tspan fill="var(--code-key)">01</tspan><tspan fill="var(--code-num)">02</tspan><tspan fill="var(--code-ink)">12</tspan><tspan fill="var(--code-key)">26</tspan><tspan fill="var(--code-num)">68</tspan><tspan fill="var(--code-ink)">0016ID.CO.QRIS…</tspan><tspan fill="var(--code-key)">63</tspan><tspan fill="var(--code-num)">04</tspan><tspan fill="var(--code-ink)">7D16</tspan></text>
+            <path d="M20 44h280M20 72h280M20 100h280" stroke="#ffffff" stroke-opacity=".08"/>
+            <text x="20" y="62" fill="var(--code-key)">59</text><text x="50" y="62" fill="var(--code-dim)">Merchant Name</text><text x="300" y="62" fill="var(--code-ink)" text-anchor="end">WARUNG CONTOH</text>
+            <text x="20" y="90" fill="var(--code-key)">54</text><text x="50" y="90" fill="var(--code-dim)">Transaction Amount</text><text x="300" y="90" fill="var(--code-num)" text-anchor="end">Rp 25,000</text>
+            <text x="20" y="118" fill="var(--code-key)">63</text><text x="50" y="118" fill="var(--code-dim)">CRC</text>
+            <rect x="214" y="105" width="86" height="19" rx="9.5" fill="var(--ok)" fill-opacity=".16"/><text x="257" y="118" fill="var(--ok)" text-anchor="middle">7D16 ✓</text>
+          </svg>
+        </span>
+        <div class="body">
+          <span class="kicker">QRIS · EMV TLV · CRC-16</span>
+          <h3><a href="https://rocketflash-net.github.io/qris-tlv-decoder/" target="_blank" rel="noopener">QRIS TLV Decoder</a></h3>
+          <p>Splits a QRIS payload into EMV tags, explains each field and validates it against the QRIS MPM v1.9 spec, including the CRC and mandatory tags.</p>
+          <div class="links"><span class="open">Open tool <span>→</span></span><a class="src" href="https://github.com/rocketflash-net/qris-tlv-decoder" target="_blank" rel="noopener">Source</a></div>
+        </div>
+      </article>
+      <article class="tool">
+        <span class="art" aria-hidden="true">
+          <svg viewBox="0 0 320 148" fill="none" font-family="Schibsted Grotesk, system-ui, sans-serif" font-size="11.5" font-weight="600">
+            <rect x="24" y="14" width="120" height="120" rx="8" fill="#ffffff"/>
+            <path transform="translate(34 24) scale(3.4483)" fill="#151a28" d="M0 0h7v1h-7zM10 0h1v1h-1zM13 0h4v1h-4zM19 0h1v1h-1zM22 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h3v1h-3zM14 1h5v1h-5zM20 1h1v1h-1zM22 1h1v1h-1zM28 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM8 2h1v1h-1zM14 2h5v1h-5zM20 2h1v1h-1zM22 2h1v1h-1zM24 2h3v1h-3zM28 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM9 3h1v1h-1zM12 3h1v1h-1zM14 3h3v1h-3zM19 3h1v1h-1zM22 3h1v1h-1zM24 3h3v1h-3zM28 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM8 4h3v1h-3zM12 4h7v1h-7zM22 4h1v1h-1zM24 4h3v1h-3zM28 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM10 5h1v1h-1zM12 5h1v1h-1zM15 5h6v1h-6zM22 5h1v1h-1zM28 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h7v1h-7zM8 7h1v1h-1zM10 7h2v1h-2zM14 7h4v1h-4zM19 7h2v1h-2zM0 8h2v1h-2zM3 8h1v1h-1zM6 8h2v1h-2zM11 8h4v1h-4zM19 8h1v1h-1zM22 8h3v1h-3zM26 8h2v1h-2zM0 9h3v1h-3zM4 9h2v1h-2zM9 9h1v1h-1zM11 9h3v1h-3zM16 9h2v1h-2zM20 9h3v1h-3zM25 9h1v1h-1zM28 9h1v1h-1zM0 10h2v1h-2zM5 10h2v1h-2zM8 10h1v1h-1zM11 10h3v1h-3zM16 10h2v1h-2zM19 10h1v1h-1zM21 10h1v1h-1zM23 10h1v1h-1zM25 10h3v1h-3zM1 11h1v1h-1zM3 11h1v1h-1zM9 11h5v1h-5zM16 11h1v1h-1zM18 11h2v1h-2zM24 11h1v1h-1zM26 11h2v1h-2zM1 12h1v1h-1zM4 12h1v1h-1zM6 12h2v1h-2zM10 12h4v1h-4zM15 12h3v1h-3zM19 12h4v1h-4zM25 12h1v1h-1zM27 12h2v1h-2zM0 13h2v1h-2zM3 13h1v1h-1zM7 13h3v1h-3zM11 13h1v1h-1zM13 13h1v1h-1zM16 13h1v1h-1zM19 13h1v1h-1zM0 14h2v1h-2zM3 14h2v1h-2zM6 14h2v1h-2zM10 14h2v1h-2zM13 14h2v1h-2zM17 14h2v1h-2zM21 14h2v1h-2zM25 14h4v1h-4zM5 15h1v1h-1zM9 15h1v1h-1zM12 15h2v1h-2zM16 15h4v1h-4zM21 15h1v1h-1zM23 15h1v1h-1zM25 15h1v1h-1zM27 15h1v1h-1zM0 16h1v1h-1zM2 16h1v1h-1zM4 16h1v1h-1zM6 16h4v1h-4zM11 16h2v1h-2zM15 16h1v1h-1zM17 16h1v1h-1zM20 16h2v1h-2zM27 16h1v1h-1zM1 17h1v1h-1zM3 17h2v1h-2zM7 17h1v1h-1zM10 17h2v1h-2zM13 17h2v1h-2zM16 17h1v1h-1zM18 17h1v1h-1zM21 17h3v1h-3zM25 17h1v1h-1zM28 17h1v1h-1zM0 18h1v1h-1zM4 18h1v1h-1zM6 18h2v1h-2zM9 18h2v1h-2zM12 18h1v1h-1zM21 18h3v1h-3zM27 18h2v1h-2zM3 19h2v1h-2zM7 19h2v1h-2zM10 19h1v1h-1zM14 19h4v1h-4zM19 19h1v1h-1zM21 19h1v1h-1zM24 19h1v1h-1zM27 19h2v1h-2zM0 20h1v1h-1zM5 20h3v1h-3zM9 20h3v1h-3zM13 20h4v1h-4zM20 20h5v1h-5zM26 20h1v1h-1zM8 21h1v1h-1zM12 21h3v1h-3zM16 21h1v1h-1zM20 21h1v1h-1zM24 21h1v1h-1zM26 21h3v1h-3zM0 22h7v1h-7zM8 22h3v1h-3zM14 22h1v1h-1zM18 22h1v1h-1zM20 22h1v1h-1zM22 22h1v1h-1zM24 22h1v1h-1zM27 22h1v1h-1zM0 23h1v1h-1zM6 23h1v1h-1zM9 23h6v1h-6zM16 23h1v1h-1zM20 23h1v1h-1zM24 23h3v1h-3zM28 23h1v1h-1zM0 24h1v1h-1zM2 24h3v1h-3zM6 24h1v1h-1zM9 24h1v1h-1zM11 24h3v1h-3zM15 24h3v1h-3zM20 24h5v1h-5zM27 24h1v1h-1zM0 25h1v1h-1zM2 25h3v1h-3zM6 25h1v1h-1zM8 25h1v1h-1zM12 25h1v1h-1zM16 25h4v1h-4zM22 25h6v1h-6zM0 26h1v1h-1zM2 26h3v1h-3zM6 26h1v1h-1zM10 26h3v1h-3zM16 26h2v1h-2zM24 26h3v1h-3zM28 26h1v1h-1zM0 27h1v1h-1zM6 27h1v1h-1zM8 27h1v1h-1zM11 27h4v1h-4zM17 27h4v1h-4zM22 27h3v1h-3zM27 27h1v1h-1zM0 28h7v1h-7zM8 28h1v1h-1zM10 28h1v1h-1zM17 28h1v1h-1zM20 28h1v1h-1zM24 28h1v1h-1zM27 28h1v1h-1z"/>
+            <g fill="var(--code-ink)" text-anchor="middle">
+              <rect x="168" y="22" width="60" height="24" rx="12" fill="var(--cobalt)"/><text x="198" y="38" fill="#ffffff">QRIS</text>
+              <rect x="236" y="22" width="60" height="24" rx="12" fill="none" stroke="#ffffff" stroke-opacity=".18"/><text x="266" y="38">Link</text>
+              <rect x="168" y="54" width="60" height="24" rx="12" fill="none" stroke="#ffffff" stroke-opacity=".18"/><text x="198" y="70">vCard</text>
+              <rect x="236" y="54" width="60" height="24" rx="12" fill="none" stroke="#ffffff" stroke-opacity=".18"/><text x="266" y="70">Wi-Fi</text>
+              <rect x="168" y="86" width="60" height="24" rx="12" fill="none" stroke="#ffffff" stroke-opacity=".18"/><text x="198" y="102">Maps</text>
+              <rect x="236" y="86" width="60" height="24" rx="12" fill="none" stroke="#ffffff" stroke-opacity=".18"/><text x="266" y="102">Event</text>
+            </g>
+            <text x="168" y="132" fill="var(--code-dim)" font-family="IBM Plex Mono, ui-monospace, monospace" font-weight="400" font-size="10.5">PNG · SVG export</text>
+          </svg>
+        </span>
+        <div class="body">
+          <span class="kicker">QRIS · vCard · Wi-Fi · 11 types</span>
+          <h3><a href="https://rocketflash-net.github.io/qr-generator/" target="_blank" rel="noopener">QR Code Generator</a></h3>
+          <p>Generates QR codes for QRIS payments, links, contacts, Wi-Fi, locations, WhatsApp and events. For QRIS it checks the CRC and can set a fixed amount.</p>
+          <div class="links"><span class="open">Open tool <span>→</span></span><a class="src" href="https://github.com/rocketflash-net/qr-generator" target="_blank" rel="noopener">Source</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <section id="projects" class="split">
     <header><h2>Projects</h2></header>
     <div class="work">
-      <div class="item">
-        <h3>QRIS TLV Decoder</h3>
-        <a href="https://rocketflash-net.github.io/qris-tlv-decoder/" target="_blank" rel="noopener">Open the tool</a>
-        <p>An open-source tool that splits a QRIS payload into EMV tags, explains each field and validates it against the QRIS MPM v1.9 spec, including the CRC and mandatory tags. It runs entirely in the browser. <a href="https://github.com/rocketflash-net/qris-tlv-decoder" target="_blank" rel="noopener">Source</a></p>
-      </div>
-      <div class="item">
-        <h3>QR Code Generator</h3>
-        <a href="https://rocketflash-net.github.io/qr-generator/" target="_blank" rel="noopener">Open the tool</a>
-        <p>Generates QR codes for QRIS payments, links, contacts, Wi-Fi, locations, WhatsApp and events, with PNG and SVG export. For QRIS it checks the CRC and can set a fixed amount, recalculating the CRC. <a href="https://github.com/rocketflash-net/qr-generator" target="_blank" rel="noopener">Source</a></p>
-      </div>
       <div class="item">
         <h3>BATPay</h3>
         <a href="https://batpay.id" target="_blank" rel="noopener">batpay.id</a>
