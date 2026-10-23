@@ -121,7 +121,7 @@ h2{font-size:1.5rem;letter-spacing:-.02em;font-weight:700;line-height:1.2}
 .item:last-child{border-bottom:0}
 .item h3{font-size:1.15rem;font-weight:700}
 .item p{color:var(--slate);grid-column:1;max-width:40rem}
-.item a{grid-row:1;grid-column:2;font-size:.92rem;white-space:nowrap;align-self:baseline}
+.item > a{grid-row:1;grid-column:2;font-size:.92rem;white-space:nowrap;align-self:baseline}
 
 .edu{display:grid;gap:1.25rem}
 .edu div{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.25rem 1rem}
@@ -145,7 +145,7 @@ footer{padding:2rem 0 3rem;color:var(--slate);font-size:.9rem;border-top:1px sol
 @media (max-width:560px){
   .bar .right a{display:none}
   .item{grid-template-columns:1fr}
-  .item a{grid-row:auto;grid-column:1}
+  .item > a{grid-row:auto;grid-column:1}
   .response{font-size:.76rem}
 }
 @media print{
@@ -229,6 +229,11 @@ footer{padding:2rem 0 3rem;color:var(--slate);font-size:.9rem;border-top:1px sol
   <section id="projects" class="split">
     <header><h2>Projects</h2></header>
     <div class="work">
+      <div class="item">
+        <h3>QRIS TLV Decoder</h3>
+        <a href="https://rocketflash-net.github.io/qris-tlv-decoder/" target="_blank" rel="noopener">Open the tool</a>
+        <p>An open-source tool that splits a QRIS payload into EMV tags, explains each field and checks the CRC and required tags. It runs entirely in the browser. <a href="https://github.com/rocketflash-net/qris-tlv-decoder" target="_blank" rel="noopener">Source</a></p>
+      </div>
       <div class="item">
         <h3>BATPay</h3>
         <a href="https://batpay.id" target="_blank" rel="noopener">batpay.id</a>
